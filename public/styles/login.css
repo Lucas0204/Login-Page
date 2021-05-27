@@ -106,7 +106,7 @@ body {
 .error {
     padding: 10px 10px;
     width: 40%;
-    height: 96px;
+    height: calc(max-content + 4px);
     margin: auto;
     margin-bottom: 30px;
     background-color: rgba(255, 68, 68, 0.616);

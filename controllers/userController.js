@@ -58,7 +58,12 @@ const controller = {
 
         const { error } = validateLogin(req.body)
 
-        if (error) return res.status(400).send(error.message)
+        if (error) return res.status(400).render('login', {
+            error: true,
+            errorMessage: error.message,
+            email: req.body.email,
+            password: req.body.password
+        })
         
         const currentUser = await User.findOne({ email: req.body.email })
 
@@ -95,7 +100,7 @@ const controller = {
         if (!token) {
             return res.render('login', { 
                 error: true, 
-                errorMessage: 'Invalid token! Please, enter your account to access this page.',
+                errorMessage: 'Token inválido! Faça login com sua conta para acessar a página principal.',
                 email: null,
                 password: null
             })
@@ -107,7 +112,7 @@ const controller = {
             req.params.token = ''
             return res.render('login', { 
                 error: true, 
-                errorMessage: 'Invalid token! Please, enter your account to access this page.', 
+                errorMessage: 'Token inválido! Faça login com sua conta para acessar a página principal.', 
                 email: null, 
                 password: null 
             })
