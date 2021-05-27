@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* max-width: 1280px; */
+    height: 100vh;
+    margin: auto;
+    padding: 26px;
+    border: 1px solid;
+}
+
+#title {
+    font-size: 3rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    height: 40%;
+    /* border: 1px solid; */
+}
+
+.form-container {
+    margin-top: 60px;
+    width: 100%;
+    text-align: center;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: auto;
+    width: 60%;
+}
+
+.input {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 8px;
+    width: 100%;
+    border: none;
+    outline: none;
+    position: relative;
+    bottom: -6px;
+}
+
+.input-container {
+    display: flex;
+    padding: 0 4px;
+    border-bottom: 1px solid #a1a1a1;
+    transition: .2s;
+}
+
+.input-container svg {
+    position: relative;
+    bottom: -10px;
+    transition: .2s;
+}
+
+.input-container:focus-within {
+    border-bottom: 1px solid #6C63FF;
+}
+
+.input-container:focus-within svg {
+    fill: #6C63FF;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    margin-top: 26px;
+    background-color: #726aff;
+    color: rgba(255, 255, 255, 0.884);
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    transition: .25s;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #6158ff;
+    color: white;
+}
+
+#img-container {
+    margin-left: 86px;
+}
+
+.error {
+    padding: 10px 10px;
+    width: 40%;
+    height: 96px;
+    margin: auto;
+    margin-bottom: 30px;
+    background-color: rgba(255, 68, 68, 0.616);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.error h3, .error p {
+    font-size: 1.2rem;
+    padding: 6px;
+    text-align: left;
+}
+
+.error button {
+    background-color: transparent;
+    font-weight: bold;
+    padding: 8px 10px;
+    border: none;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+}
+
+.error button:hover {
+    cursor: pointer;
+}
