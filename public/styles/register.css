@@ -14,11 +14,9 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* max-width: 1280px; */
     height: 100vh;
     margin: auto;
     padding: 26px;
-    border: 1px solid;
 }
 
 #title {
@@ -31,7 +29,6 @@ body {
     align-items: center;
     width: 70%;
     height: 40%;
-    /* border: 1px solid; */
 }
 
 .form-container {

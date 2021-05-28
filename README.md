@@ -1,6 +1,6 @@
 # Login Page
 
-## Is a simple login system that i maked to pratice
+## Is a simple login system that i maked to pratice, focused on the back-end
 
 ## - Important
 
