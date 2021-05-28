@@ -14,3 +14,6 @@
 
 - In this system, only those who are logged in can access the main page. I did this using JWT (JsonWebToken), to generate a token for the user, who after being logged in will be redirected to the main page with that token.
 
+## - Page Overview
+
+![Page overview gif](https://github.com/Lucas0204/Login-Page/blob/master/public/assets/to_README/Page%20GIF.gif)
