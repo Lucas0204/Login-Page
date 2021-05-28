@@ -10,15 +10,13 @@ const controller = {
 
         const currentEmail = await User.findOne({ email: req.body.email })
 
-        if (currentEmail) {
-            return res.status(400).render('register', { 
-                error: true, 
-                errorMessage: 'Essa conta já existe! Cadastre um novo email ou faça login.', 
-                name: req.body.name,
-                email: req.body.email,
-                password: req.body.password
-            })
-        }
+        if (currentEmail) return res.status(400).render('register', { 
+            error: true, 
+            errorMessage: 'Essa conta já existe! Cadastre um novo email ou faça login.', 
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password
+        })
 
         const { error } = validateRegister(req.body)
 
@@ -67,25 +65,21 @@ const controller = {
         
         const currentUser = await User.findOne({ email: req.body.email })
 
-        if (!currentUser) {
-            return res.status(400).render('login', { 
-                error: true, 
-                errorMessage: 'Email ou senha incorreta. Tente novamente!', 
-                email: req.body.email, 
-                password: req.body.password 
-            })
-        }
+        if (!currentUser) return res.status(400).render('login', { 
+            error: true, 
+            errorMessage: 'Email ou senha incorreta. Tente novamente!', 
+            email: req.body.email, 
+            password: req.body.password 
+        })
 
         const passwordMatch = bcrypt.compareSync(req.body.password, currentUser.password)
 
-        if (!passwordMatch) {
-            return res.status(400).render('login', { 
-                error: true, 
-                errorMessage: 'Email ou senha incorreta. Tente novamente!', 
-                email: req.body.email, 
-                password: req.body.password 
-            })
-        }
+        if (!passwordMatch) return res.status(400).render('login', { 
+            error: true, 
+            errorMessage: 'Email ou senha incorreta. Tente novamente!', 
+            email: req.body.email, 
+            password: req.body.password 
+        })
 
         const token = jwt.sign({ id: currentUser._id }, process.env.JWT_SECRET)
 
@@ -97,14 +91,12 @@ const controller = {
 
         const token = req.params.token
 
-        if (!token) {
-            return res.render('login', { 
-                error: true, 
-                errorMessage: 'Token inválido! Faça login com sua conta para acessar a página principal.',
-                email: null,
-                password: null
-            })
-        }
+        if (!token) return res.render('login', { 
+            error: true, 
+            errorMessage: 'Token inválido! Faça login com sua conta para acessar a página principal.',
+            email: null,
+            password: null
+        })
 
         try {
             const valid = jwt.verify(token.slice(1, token.length), process.env.JWT_SECRET)
